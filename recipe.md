@@ -45,4 +45,43 @@ estimate_reading_time(text) => 2 min
 
 
 4. Implement the behaviour
+Function works
 
+1. Describe the problem
+
+As a user
+So that I can improve my grammar
+I want to verify that a text starts 
+with a capital letter and ends 
+with a suitable sentence-ending punctuation mark.
+
+2. Design the function signature
+
+def check_grammar(text):
+""" Confirm if a text starts with a capital letter and ends with a punctuation mark
+
+Parameters:
+    text: a string
+
+    Returns: 
+        True if conditions are met or false otherwise
+        Boolean
+
+    Side effects:
+        No known side effects at this point 
+"""
+pass
+
+3. Create Examples as Tests
+"""
+Happy path 
+Checks for Capital letter and a suitable punctuation mark - !?.
+"""
+Call check_grammar with "This is a sentence."
+Pass
+
+Call check_grammar with "This is a sentence,"
+
+Call check_grammar with "this is a sentence!"
+
+4. Implement the behaviour
