@@ -47,6 +47,44 @@ estimate_reading_time(text) => 2 min
 4. Implement the behaviour
 Function works
 
+Challenge
+
+1. Describe the problem
+
+As a user
+So that I can keep track of my tasks
+I want to check if a text includes the string #TODO.
+
+2. Design the function signature
+
+def check_todo(text):
+""" Check if a text includes the string #TODO
+
+Parameters:
+    text: a string
+
+    Returns: 
+        True if conditions are met or false otherwise
+        Boolean
+
+    Side effects:
+        No known side effects at this point 
+"""
+pass
+
+3. Create Examples as Tests
+"""
+Happy path 
+Checks for #TODO and returns True.
+"""
+Call check_todo with "This is a task #TODO"
+Pass
+
+Call check_todo with "This is a task"
+Fail
+
+4. Implement the behaviour
+
 1. Describe the problem
 
 As a user
