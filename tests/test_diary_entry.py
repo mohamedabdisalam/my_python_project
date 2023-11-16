@@ -36,7 +36,32 @@ And a text with 2 words
 for the contents
 """
 
-# def estimated_reading_time():
-#     diary_entry = DiaryEntry(10)
-#     result = diary_entry.reading_time()
-#     assert result == 
+def test_estimated_reading_time():
+    diary_entry = DiaryEntry('Reading', 'Hello world, from Liam')
+    result = diary_entry.reading_time(4)
+    assert result == 1
+
+"""
+given words per minute of 4 and minutes
+a text with four words
+#reading_chunk returns the chunk the reader can read in the iven minutes.
+"""
+
+def test_chunk_of_contents_reading_time():
+    diary_entry = DiaryEntry('Reading', 'Hello world from Liam')
+    result = diary_entry.reading_chunk(2, 1)
+    assert result == 'Hello world'
+
+
+def test_chunk_continues_from_last_position():
+    diary_entry = DiaryEntry('Reading', 'Hello world from Liam')
+    diary_entry.reading_chunk(2, 1)
+    result = diary_entry.reading_chunk(2, 1)
+    assert result == 'from Liam'
+
+def test_chunk_continues_from_last_position_and_wraps_around():
+    diary_entry = DiaryEntry('Reading', 'Hello world from Liam')
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    result = diary_entry.reading_chunk(2, 1)
+    assert result == 'Hello world'

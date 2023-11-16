@@ -4,6 +4,7 @@ class DiaryEntry:
             raise Exception("Diary entries must have a title or content")
         self.title  = title
         self.contents = contents
+        self.bookmark = 0
 
 
     def format(self):
@@ -26,7 +27,8 @@ class DiaryEntry:
         # Returns:
         #   int: an estimate of the reading time in minutes for the contents at
         #        the given wpm.
-        pass
+        estimate = int(self.count_words() / wpm)
+        return estimate 
 
     def reading_chunk(self, wpm, minutes):
         # Parameters
@@ -41,4 +43,15 @@ class DiaryEntry:
         # If called again, `reading_chunk` should return the next chunk,
         # skipping what has already been read, until the contents is fully read.
         # The next call after that should restart from the beginning.
-        pass
+        if self.bookmark >= self.count_words() - 1:
+            self.bookmark = 0
+        words_to_show = wpm * minutes
+        words = self.contents.split()
+        # if self.bookmark >= len(words):
+            # self.bookmark = 0
+        chunk = words[self.bookmark:self.bookmark + words_to_show]
+        string_chunk = ' '.join(chunk) 
+        self.bookmark += words_to_show
+        return string_chunk 
+
+        # if i'm at the end start agian
