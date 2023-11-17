@@ -1,6 +1,6 @@
 def encode(text, key):
     cipher = make_cipher(key)
-
+    print(cipher)
     ciphertext_chars = []
     for i in text:
         ciphered_char = chr(65 + cipher.index(i))
@@ -21,7 +21,7 @@ def decode(encrypted, key):
 
 
 def make_cipher(key):
-    alphabet = [chr(i + 98) for i in range(1, 26)]
+    alphabet = [chr(i + 97) for i in range(0, 26)]
     cipher_with_duplicates = list(key) + alphabet
 
     cipher = []
@@ -31,35 +31,16 @@ def make_cipher(key):
 
     return cipher
 
+# When you run this file, these next lines will show you the expected
+# and actual outputs of the functions above.
 print(f"""
- Running: encode("t", "secretkey")
-Expected: E
-  Actual: {encode('t', 'secretkey')}
+ Running: encode("theswiftfoxjumpedoverthelazydog", "secretkey")
+Expected: EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL
+  Actual: {encode('theswiftfoxjumpedoverthelazydog', 'secretkey')}
 """)
 
-# When you run this file, these next lines will show you the expected
-# and actual outputs of the functions above.
-# print(f"""
-#  Running: encode("theswiftfoxjumpedoverthelazydog", "secretkey")
-# Expected: EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL
-#   Actual: {encode('theswiftfoxjumpedoverthelazydog', 'secretkey')}
-# """)
-
-# print(f"""
-#  Running: decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
-# Expected: theswiftfoxjumpedoverthelazydog
-#   Actual: {decode('EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL', 'secretkey')}
-# """)
-# When you run this file, these next lines will show you the expected
-# and actual outputs of the functions above.
-# print(f"""
-#  Running: encode("theswiftfoxjumpedoverthelazydog", "secretkey")
-# Expected: EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL
-#   Actual: {encode('theswiftfoxjumpedoverthelazydog', 'secretkey')}
-# """)
-
-# print(f"""
-#  Running: decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
-# Expected: theswiftfoxjumpedoverthelazydog
-#   Actual: {decode('EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL', 'secretkey')}
-# """)
+print(f"""
+ Running: decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
+Expected: theswiftfoxjumpedoverthelazydog
+  Actual: {decode('EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL', 'secretkey')}
+""")

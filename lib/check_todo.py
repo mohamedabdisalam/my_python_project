@@ -6,7 +6,7 @@
 
 def check_todo(text):
     for word in text:
-        if "#TODO" not in text:
-            return False
-        else:
+        if "#TODO" in text:
             return True
+        else:
+            return False

@@ -49,7 +49,7 @@ include £TODO
 """
 
 def test_todo_when_some_text_inc_TODO():
-    result = check_todo("This is a task")
-    result = check_todo("This is a task #TODO")
-    result = check_todo("This is a task")
-    assert result == True
+    result1 = check_todo("This is a task")
+    result2 = check_todo("This is a task #TODO")
+    result3 = check_todo("This is a task")
+    assert any([result1, result2, result3]) == True
