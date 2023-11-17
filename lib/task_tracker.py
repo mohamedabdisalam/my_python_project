@@ -17,3 +17,17 @@ class TaskTracker():
         loc = self.task_list.index(task)
         self.task_list.pop(loc)
 
+class MusicTracker():
+
+    def __init__(self):
+        self.song_list = []
+
+    def add_song(self, song):
+        if song == "":
+            raise Exception("Please add a song")
+        self.song_list.append(song)
+
+    def see_songs(self):
+        if self.song_list == []:
+            raise Exception("You haven't listened to some great music yet!")
+        return self.song_list
